@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
 import { RouteComponentProps } from "@reach/router";
-import { Grid, Typography, Paper } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import { ProductList } from "Components/ProductList";
 import { ICar } from "Types/ICar";
 import { FavouriteService } from "Services/FavouriteService";
@@ -16,18 +16,16 @@ export const Favourites: FunctionComponent<RouteComponentProps> = () => {
     setProductList(favourite.favouriteToProduct());
   }, [sharedState]);
   return (
-    <Grid container spacing={3} style={{ minWidth: "100vw" }}>
-      <Grid item xs={12} md={12} lg={12}>
-        <Paper style={{ minHeight: "100vh" }}>
-          {productList.length ? (
-            <ProductList productList={productList} />
-          ) : (
-            <Typography component="h1">
-              There is no favourite list. you can add to your favourite list in
-              product page
-            </Typography>
-          )}
-        </Paper>
+    <Grid container style={{ justifyContent: "center", width: "97vw" }}>
+      <Grid item xs={6}>
+        {productList.length ? (
+          <ProductList productList={productList} />
+        ) : (
+          <Typography component="h1">
+            There is no favourite list. you can add to your favourite list in
+            product page
+          </Typography>
+        )}
       </Grid>
     </Grid>
   );

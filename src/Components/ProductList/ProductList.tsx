@@ -32,9 +32,15 @@ export const ProductList: FunctionComponent<ProductListProps> = ({
         <Tile
           key={product.stockNumber}
           id={product.stockNumber}
-          title={product.manufacturerName}
+          title={product.manufacturerName + " " + product.modelName}
           summary={
-            product.modelName + " " + product.fuelType + " " + product.color
+            product.mileage?.number +
+            " " +
+            product.mileage?.unit +
+            " - " +
+            product.fuelType +
+            " - " +
+            product.color
           }
           price={0}
           image={product.pictureUrl}

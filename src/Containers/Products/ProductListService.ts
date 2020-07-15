@@ -1,4 +1,5 @@
 import { CarService } from "Services/CarService";
+import { ICar } from "Types/ICar";
 
 export const getProductList = async (
   page: number = 1,
@@ -18,4 +19,21 @@ export const getProductList = async (
 
   productInstance.setParameters(manufactures, colors, sort, page);
   return await productInstance.read();
+};
+
+export const createProductDataFake = (): Array<ICar> => {
+  const car: ICar = {
+    stockNumber: 0,
+    modelName: "",
+    manufacturerName: "",
+    mileage: {
+      number: 0,
+      unit: "",
+    },
+    fuelType: "",
+    pictureUrl: "",
+    color: "",
+  };
+  const fakeData: any = Array(10);
+  return fakeData.fill(car);
 };

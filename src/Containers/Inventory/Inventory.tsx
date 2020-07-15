@@ -1,21 +1,31 @@
 import React, { FunctionComponent } from "react";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { FilterList } from "Components/FilterList";
 import { Products } from "Containers/Products";
 import { RouteComponentProps } from "@reach/router";
+import { makeStyles, Theme } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme: Theme) => ({
+  aside: {
+    position: "sticky",
+    top: 40,
+  },
+  content: {
+    padding: theme.spacing(0, 0, 0, 3),
+  },
+}));
 
 export const Inventory: FunctionComponent<RouteComponentProps> = () => {
+  const classes = useStyles();
+
   return (
-    <Grid container spacing={3} style={{ minWidth: "100vw" }}>
+    <Grid container style={{ minWidth: "95vw" }}>
       <Grid item xs={12} md={3} lg={3}>
-        <aside>
-          <Paper>
-            <FilterList />
-          </Paper>
+        <aside className={classes.aside}>
+          <FilterList />
         </aside>
       </Grid>
-      <Grid item xs={12} md={9} lg={9}>
+      <Grid item xs={12} md={9} lg={9} className={classes.content}>
         <Products />
       </Grid>
     </Grid>

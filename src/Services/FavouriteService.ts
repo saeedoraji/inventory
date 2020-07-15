@@ -29,11 +29,16 @@ export class FavouriteService extends db {
     let productList: Array<ICar> = [];
     for (const favourite of favouriteList) {
       let car: ICar = {} as ICar;
-      car.color = favourite.summary?.split(" ")[2];
-      car.fuelType = favourite.summary?.split(" ")[1];
-      car.modelName = favourite.summary?.split(" ")[0];
+      car.color = favourite.summary?.split("-")[2];
+      car.fuelType = favourite.summary?.split("-")[1];
+      car.mileage = {
+        number: parseInt(favourite.summary?.split("-")[0]?.split(" ")[0]),
+        unit: favourite.summary?.split("-")[0].split(" ")[1],
+      };
+
       car.stockNumber = favourite.productId;
       car.manufacturerName = favourite.title;
+      car.modelName = "";
       car.pictureUrl = favourite.image;
       productList.push(car);
     }

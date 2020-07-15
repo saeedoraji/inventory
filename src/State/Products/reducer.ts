@@ -9,10 +9,15 @@ export const ProductReducer = (
 ) => {
   switch (action.type) {
     case "SELECTED_FILTER":
-      const { boxName, selectedValue } = action.payload;
+      const filterObject: any = {};
+      action.payload.forEach(
+        (item: { boxName: string; selectedValue: string }) =>
+          (filterObject[item.boxName] = item.selectedValue)
+      );
+      console.log(action.payload);
       return {
         ...state,
-        [boxName]: selectedValue,
+        ...filterObject,
       };
     case "FAVROURITE_REMOVED":
       return {

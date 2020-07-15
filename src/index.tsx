@@ -4,10 +4,13 @@ import "./index.css";
 import { AppRouter } from "./AppRouter";
 
 import * as serviceWorker from "./serviceWorker";
+import { AppThemeProvider } from "AppThemeProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppRouter />
+    <AppThemeProvider>
+      <AppRouter />
+    </AppThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

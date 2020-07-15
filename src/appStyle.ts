@@ -1,17 +1,50 @@
 import { makeStyles, Theme } from "@material-ui/core/styles";
+import { cssCommonVars } from "cssCommonVars";
 
-const useStyle = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     display: "flex",
+    "& ul": {
+      padding: 0,
+      margin: 0,
+    },
+    "& a": {
+      textDecoration: "none",
+    },
+    "& a:hover": {
+      textDecoration: "underline",
+    },
   },
   appBar: {
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
+    boxShadow: "none !important",
+    height: 80,
+    borderBottom: `1px solid ${cssCommonVars.borderColors}`,
+    "& nav": {
+      width: theme.spacing(30),
+    },
+    backgroundColor: "#fff !important",
   },
+  menuParent: {
+    display: "flex",
+    height: "inherit",
+    alignItems: "center",
+  },
+  menu: {
+    listStyle: "none",
+    "& li": {
+      padding: theme.spacing(0, 2),
+    },
+    "& li, & a": {
+      display: "flex",
+      height: "inherit",
+      alignItems: "center",
+      color: "#000",
+    },
+  },
+
   toolbar: {
-    paddingRight: 24,
+    paddingRight: theme.spacing(2),
+    height: "inherit",
   },
   title: {
     flexGrow: 1,
@@ -32,6 +65,13 @@ const useStyle = makeStyles((theme: Theme) => ({
     overflow: "auto",
     flexDirection: "column",
   },
+  footer: {
+    height: 80,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderTop: `1px solid ${cssCommonVars.borderColors}`,
+  },
 }));
 
-export default useStyle;
+export default useStyles;
