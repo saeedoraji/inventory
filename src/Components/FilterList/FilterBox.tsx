@@ -33,6 +33,7 @@ export const FilterBox: FunctionComponent<FilterBoxProps> = ({
       ) : (
         <FormControl variant="outlined" style={{ width: "100%" }}>
           <label style={{ marginBottom: 10 }}>{title}</label>
+
           <SelectCustomized
             MenuProps={{
               anchorOrigin: {
@@ -47,15 +48,19 @@ export const FilterBox: FunctionComponent<FilterBoxProps> = ({
             }}
             value={selectedValue}
             onChange={(e: any) => filter(e.target.value)}
+            data-testid={`${title}-${state.value.length}`}
           >
             <MenuItem value="-1" selected>
-              All {title?.toLowerCase() === "colors" ? "car colors" : title}
+              All {title?.toLowerCase() === "colors" ? `car colors` : title}(
+              {state?.value?.length})
             </MenuItem>
-            {state?.value?.map((value: { title: string; checked: boolean }) => (
-              <MenuItem key={value.title} value={value.title}>
-                {value.title}
-              </MenuItem>
-            ))}
+            {state?.value?.map(
+              (value: { title: string; checked: boolean }, index: number) => (
+                <MenuItem key={index} value={value.title}>
+                  {value.title}
+                </MenuItem>
+              )
+            )}
           </SelectCustomized>
         </FormControl>
       )}

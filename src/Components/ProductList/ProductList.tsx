@@ -28,9 +28,9 @@ export const ProductList: FunctionComponent<ProductListProps> = ({
   }, []);
   return (
     <Grid container className={classes.root}>
-      {productList.map((product: ICar) => (
+      {productList.map((product: ICar, index: number) => (
         <Tile
-          key={product.stockNumber}
+          key={index}
           id={product.stockNumber}
           title={product.manufacturerName + " " + product.modelName}
           summary={

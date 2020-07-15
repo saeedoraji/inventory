@@ -14,12 +14,11 @@ export const ProductReducer = (
         (item: { boxName: string; selectedValue: string }) =>
           (filterObject[item.boxName] = item.selectedValue)
       );
-      console.log(action.payload);
       return {
         ...state,
         ...filterObject,
       };
-    case "FAVROURITE_REMOVED":
+    case "FAVOURITE_REMOVED":
       return {
         ...state,
       };

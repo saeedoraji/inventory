@@ -47,7 +47,7 @@ export const AddFavourite: FunctionComponent<FavouriteProps> = ({
     );
     if (location.pathname === "/favourites") {
       dispatch({
-        type: "FAVROURITE_REMOVED",
+        type: "FAVOURITE_REMOVED",
       });
     }
   };

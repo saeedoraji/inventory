@@ -8,7 +8,7 @@ import { makeStyles, Theme } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme: Theme) => ({
   aside: {
     position: "sticky",
-    top: 40,
+    top: 80,
   },
   content: {
     padding: theme.spacing(0, 0, 0, 3),

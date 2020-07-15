@@ -11,7 +11,7 @@ describe("Show a list of products", () => {
     render(<ProductList productList={productListMock as Array<ICar>} />);
   });
   test("Render single product", () => {
-    expect(screen.getByText("Volkswagen")).toBeInTheDocument();
+    expect(screen.getByText("Mercedes-Benz CL-Coupe")).toBeInTheDocument();
   });
 
   test(`Show ${productListMock.length} products`, () => {

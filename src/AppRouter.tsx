@@ -16,6 +16,7 @@ export const AppRouter: FunctionComponent<RouteComponentProps> = () => (
     <Router>
       <App path="/">
         <Inventory path="/inventory" />
+        <Inventory path="/" />
         <ProductDetail path="/product-detail/:productId" />
         <Favourites path="/favourites" />
         <NotFound default />
